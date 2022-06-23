@@ -1,24 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
+import Counter from './Counter';
+import { useRef } from 'react';
 
 function App() {
+  const ref = useRef();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Counter ref={ref}/>
+      <button onClick={() => ref.current.increment()}>count increase by 1</button>
+      <button onClick={() => ref.current.yell()}>what is the count</button>
+    </>    
   );
 }
 
